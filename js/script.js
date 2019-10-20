@@ -29,6 +29,7 @@ FSJS project 2 - List Filter and Pagination
 //and not the container of the li elements. (not sure what this means)
 //Create a variable to store the number of items to show on each "page" which is 10.
 
+//I think it could work the way I had as well.
 const ul = document.querySelector('.student-list');
 const studentList = [...ul.children];
 const recordsPerPage = 10;
@@ -54,16 +55,13 @@ console.log(studentList);
 function showPage(list, page) {
    let startIndex = (page * recordsPerPage) - recordsPerPage;
    let endIndex = page * recordsPerPage;
-   const ul = document.querySelector('.student-list');
-   console.log('This is the UL log: ' + ul);
 
    for (let i = 0; i < list.length; i++) {
       if (list[i] >= startIndex && list[i] < endIndex) {
-         list[i].style.display = 'none';
-      } else {
          list[i].style.display = 'block';
+      } else {
+         list[i].style.display = 'none';
       }
-   
    }
 }
 
@@ -72,7 +70,8 @@ function showPage(list, page) {
    functionality to the pagination buttons.
 ***/
 
-const addPaginationLinks = (list) => {
+//change back to a variable like they have the guide?
+function addPaginationLinks (list) {
    let totalPages = list.length / recordsPerPage;
    const newDiv = document.createElement('div');
    newDiv.className = 'pagination';
@@ -81,13 +80,26 @@ const addPaginationLinks = (list) => {
    const ulPagLinks = document.createElement('ul');
    newDiv.appendChild(ulPagLinks);
    //for every page, add li and a tags with the page number text
+   for (let i = 0; i <= totalPages; i++) {
+      const li = document.createElement('li');
+      ulPagLinks.appendChild(li);
+      li.textContent = i;
+      const a = document.createElement('a');
+      li.appendChild(a);
+
+      a.addEventListener('click', (event) => {
+         showPage(list, i);
+
+      });
+   }
    //Add an event listener to each a tag. When they are clicked
    //call the showPage function to display the appropriate page
+   
    //Loop over pagination links to remove active class from all links
    //Add the active class to the link that was just clicked. You can
    //identify that clicked link using event.target
 }
 
-
+addPaginationLinks(studentList);
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
