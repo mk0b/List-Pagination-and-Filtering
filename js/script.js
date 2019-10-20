@@ -29,8 +29,9 @@ FSJS project 2 - List Filter and Pagination
 //and not the container of the li elements. (not sure what this means)
 //Create a variable to store the number of items to show on each "page" which is 10.
 
-const studentList = document.querySelectorAll('li');
-const numberItemsPage = 10;
+const ul = document.querySelector('.student-list');
+const studentList = [...ul.children];
+const recordsPerPage = 10;
 
 //TODO: Remove before submitting.
 console.log(studentList);
@@ -51,20 +52,25 @@ console.log(studentList);
 ***/
 
 function showPage(list, page) {
-   let startIndex = (page * numberItemsPage) - numberItemsPage;
-   let endIndex = page * numberItemsPage;
+   let startIndex = (page * recordsPerPage) - recordsPerPage;
+   let endIndex = page * recordsPerPage;
+   const ul = document.querySelector('.student-list');
+   console.log('This is the UL log: ' + ul);
+
    for (let i = 0; i < list.length; i++) {
       if (list[i] >= startIndex && list[i] < endIndex) {
-         //display the list items.
-         //grab the html needed in a const
-         //overwrite the section and show only the 10 that qualify.
-
+         list[i].style.display = 'none';
+      } else {
+         list[i].style.display = 'block';
       }
-
+   
    }
 }
 
+function addPaginationLinks (list) {
 
+
+}
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
