@@ -59,16 +59,13 @@ function showPage(list, page) {
    
 
    for (let i = 0; i < list.length; i++) {
-      if (list[i] >= startIndex && list[i] < endIndex) {
+      if (i >= startIndex && i < endIndex) {
          list[i].style.display = 'block';
          } else {
             list[i].style.display = 'none';
                }
    }
 }
-
-//TODO: Delete after.
-console.log(showPage(studentList, 1));
 
 
 /*** 
