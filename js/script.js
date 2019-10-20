@@ -67,6 +67,11 @@ function showPage(list, page) {
    }
 }
 
+/*** 
+   Create the `appendPageLinks function` to generate, append, and add 
+   functionality to the pagination buttons.
+***/
+
 const addPaginationLinks = (list) => {
    let totalPages = list.length / recordsPerPage;
    const newDiv = document.createElement('div');
@@ -82,13 +87,6 @@ const addPaginationLinks = (list) => {
    //Add the active class to the link that was just clicked. You can
    //identify that clicked link using event.target
 }
-
-/*** 
-   Create the `appendPageLinks function` to generate, append, and add 
-   functionality to the pagination buttons.
-***/
-
-
 
 
 
