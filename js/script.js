@@ -67,9 +67,20 @@ function showPage(list, page) {
    }
 }
 
-function addPaginationLinks (list) {
-
-
+const addPaginationLinks = (list) => {
+   let totalPages = list.length / recordsPerPage;
+   const newDiv = document.createElement('div');
+   newDiv.className = 'pagination';
+   const divPage = document.querySelector('.page');
+   divPage.appendChild(newDiv);
+   const ulPagLinks = document.createElement('ul');
+   newDiv.appendChild(ulPagLinks);
+   //for every page, add li and a tags with the page number text
+   //Add an event listener to each a tag. When they are clicked
+   //call the showPage function to display the appropriate page
+   //Loop over pagination links to remove active class from all links
+   //Add the active class to the link that was just clicked. You can
+   //identify that clicked link using event.target
 }
 
 /*** 
