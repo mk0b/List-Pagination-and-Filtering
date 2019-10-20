@@ -56,6 +56,8 @@ function showPage(list, page) {
    let startIndex = (page * recordsPerPage) - recordsPerPage;
    let endIndex = page * recordsPerPage;
 
+   
+
    for (let i = 0; i < list.length; i++) {
       if (list[i] >= startIndex && list[i] < endIndex) {
          list[i].style.display = 'block';
@@ -84,17 +86,14 @@ function addPaginationLinks (list) {
    divPage.appendChild(newDiv);
    const ulPagLinks = document.createElement('ul');
    newDiv.appendChild(ulPagLinks);
-   //showPage();
+   showPage(studentList, 1);
    //for every page, add li and a tags with the page number text
    for (let i = 1; i <= totalPages; i++) {
       const li = document.createElement('li');
-      //li.innerHTML = list[i];
       ulPagLinks.appendChild(li);
       const a = document.createElement('a');
       li.appendChild(a);
       a.textContent = i;
-
-
    }
    //Add an event listener to each a tag. When they are clicked
    //call the showPage function to display the appropriate page
@@ -105,10 +104,10 @@ function addPaginationLinks (list) {
 }
 
       //I think I need to move the event listeners outside of this function.
-      a.addEventListener('click', (event) => {
-         showPage(list, i);
+     //a.addEventListener('click', (event) => {
+         //showPage(list, i);
          //add if statements that match the text of the links to set the correct actions for each one.
-      });
+     // });
 
 
 addPaginationLinks(studentList);
