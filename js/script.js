@@ -59,11 +59,15 @@ function showPage(list, page) {
    for (let i = 0; i < list.length; i++) {
       if (list[i] >= startIndex && list[i] < endIndex) {
          list[i].style.display = 'block';
-      } else {
-         list[i].style.display = 'none';
-      }
+         } else {
+            list[i].style.display = 'none';
+               }
    }
 }
+
+//TODO: Delete after.
+console.log(showPage(studentList, 1));
+
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
@@ -71,26 +75,26 @@ function showPage(list, page) {
 ***/
 
 //change back to a variable like they have the guide?
+//had to use math.ceil to round up because 54/10 was 5.4 and I was getting 5 pages and I needed 6.
 function addPaginationLinks (list) {
-   let totalPages = list.length / recordsPerPage;
+   let totalPages = Math.ceil(list.length / recordsPerPage);
    const newDiv = document.createElement('div');
    newDiv.className = 'pagination';
    const divPage = document.querySelector('.page');
    divPage.appendChild(newDiv);
    const ulPagLinks = document.createElement('ul');
    newDiv.appendChild(ulPagLinks);
+   //showPage();
    //for every page, add li and a tags with the page number text
-   for (let i = 0; i <= totalPages; i++) {
+   for (let i = 1; i <= totalPages; i++) {
       const li = document.createElement('li');
+      //li.innerHTML = list[i];
       ulPagLinks.appendChild(li);
-      li.textContent = i;
       const a = document.createElement('a');
       li.appendChild(a);
+      a.textContent = i;
 
-      a.addEventListener('click', (event) => {
-         showPage(list, i);
 
-      });
    }
    //Add an event listener to each a tag. When they are clicked
    //call the showPage function to display the appropriate page
@@ -99,6 +103,13 @@ function addPaginationLinks (list) {
    //Add the active class to the link that was just clicked. You can
    //identify that clicked link using event.target
 }
+
+      //I think I need to move the event listeners outside of this function.
+      a.addEventListener('click', (event) => {
+         showPage(list, i);
+         //add if statements that match the text of the links to set the correct actions for each one.
+      });
+
 
 addPaginationLinks(studentList);
 
