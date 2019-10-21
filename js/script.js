@@ -95,12 +95,14 @@ function addPaginationLinks (list) {
       for (let j = 1; j <= aList.length; j++) {
          a.addEventListener('click', (event) => {
             showPage(studentList, j);
+            
+            for (let k = 1; k <= aList.length; k++) {
+               a.className = '';
+            }
             event.target.className = 'active';
       });
       }
-      for (let k = 1; k <= aList.length; k++) {
-         a.className = '';
-      }
+
    }
 
    
