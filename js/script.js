@@ -29,7 +29,6 @@ FSJS project 2 - List Filter and Pagination
 //and not the container of the li elements. (not sure what this means)
 //Create a variable to store the number of items to show on each "page" which is 10.
 
-//I think it could work the way I had as well.
 const ul = document.querySelector('.student-list');
 const studentList = [...ul.children];
 const recordsPerPage = 10;
@@ -82,7 +81,6 @@ function addPaginationLinks (list) {
    const divPage = document.querySelector('.page');
    divPage.appendChild(newDiv);
    const ulPagLinks = document.createElement('ul');
-   ulPagLinks.className = 'pagLinks';
    newDiv.appendChild(ulPagLinks);
    showPage(studentList, 1);
    //for every page, add li and a tags with the page number text
@@ -99,7 +97,10 @@ function addPaginationLinks (list) {
             showPage(studentList, j);
             event.target.className = 'active';
       });
-   }
+      }
+      for (let k = 1; k <= aList.length; k++) {
+         a.className = '';
+      }
    }
 
    
