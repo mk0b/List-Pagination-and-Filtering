@@ -94,9 +94,9 @@ function addPaginationLinks (list) {
       a.textContent = i;
       a.href = '#';
       let aList = document.querySelectorAll('a');
-      for (i = 1; i <= aList.length; i++) {
+      for (j = 1; i <= aList.length; j++) {
          a.addEventListener('click', (event) => {
-            showPage(studentList, i);
+            showPage(studentList, j);
             event.target.className = 'active';
       });
    }
