@@ -91,20 +91,29 @@ function addPaginationLinks (list) {
       const a = document.createElement('a');
       li.appendChild(a);
       a.textContent = i;
+      a.href = '#';
+      //not sure if I should keep this within the loop?
+      a.addEventListener('click', (event) => {
+         if (a.textContent === i) {
+            //active class name should be removed from all other pag links.
+            a.classList.remove('active');
+            //active class name should be added to the link that was just clicked.
+            a.className = 'active';
+            showPage(studentList, i);
+         }
+
+      });
    }
+
+
    //Add an event listener to each a tag. When they are clicked
    //call the showPage function to display the appropriate page
    
+
    //Loop over pagination links to remove active class from all links
    //Add the active class to the link that was just clicked. You can
    //identify that clicked link using event.target
 }
-
-      //I think I need to move the event listeners outside of this function.
-     //a.addEventListener('click', (event) => {
-         //showPage(list, i);
-         //add if statements that match the text of the links to set the correct actions for each one.
-     // });
 
 
 addPaginationLinks(studentList);
