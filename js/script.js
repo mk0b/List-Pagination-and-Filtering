@@ -92,23 +92,23 @@ function addPaginationLinks (list) {
       li.appendChild(a);
       a.textContent = i;
       a.href = '#';
+      let aList = document.querySelectorAll('a');
+      for (iEventListener = 2; i <= aList.length; i++) {
+         a.addEventListener('click', (event) => {
+            showPage(studentList, iEventListener);
+            event.target.className = 'active';
+      });
    }
+   }
+
    
    //Add an event listener to each a tag. When they are clicked
    //call the showPage function to display the appropriate page
    //TODO: Make this so it's not hard coded.
 
-  for (i = 1; i <= totalPages.length; i++) {
-   ulPagLinks.addEventListener('click', (event) => {
-      if (event.target === i) {
-         showPage(studentList, i);
-         event.target.className = 'active';
-      } 
-   });
-}
 
    
-   //let aList = document.querySelectorAll('a');
+   
    //Loop over pagination links to remove active class from all links
    //Add the active class to the link that was just clicked. You can
    //identify that clicked link using event.target
