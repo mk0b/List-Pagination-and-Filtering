@@ -92,23 +92,29 @@ function addPaginationLinks (list) {
       li.appendChild(a);
       a.textContent = i;
       a.href = '#';
-      //not sure if I should keep this within the loop?
-      a.addEventListener('click', (event) => {
-         if (a.textContent === i) {
-            //active class name should be removed from all other pag links.
-            a.classList.remove('active');
-            //active class name should be added to the link that was just clicked.
-            a.className = 'active';
-            showPage(studentList, i);
-         }
-
-      });
    }
 
+   ulPagLinks.addEventListener('click', (event) => {
+      if (event.target.textContent === '1') {
+         //TODO: If this works come back and make 1 the correct number we need while being dynamic, maybe with a for loop?
+         showPage(studentList, 1)
+      } else if (event.target.textContent === '2') {
+         showPage(studentList, 2)
+      }
 
+   });
    //Add an event listener to each a tag. When they are clicked
    //call the showPage function to display the appropriate page
-   
+   /*a.addEventListener('click', (event) => {
+      if (a.textContent === i) {
+         //active class name should be removed from all other pag links.
+         a.classList.remove('active');
+         //active class name should be added to the link that was just clicked.
+         a.target.className = 'active';
+         showPage(studentList, i);
+      } // I think I need to get my event listeners out of here. 
+
+   */// });
 
    //Loop over pagination links to remove active class from all links
    //Add the active class to the link that was just clicked. You can
@@ -117,5 +123,14 @@ function addPaginationLinks (list) {
 
 
 addPaginationLinks(studentList);
+
+//event listeners//
+let aList = document.querySelectorAll('a');
+
+//event listener should be on the ul I think then use event.target and if statements
+
+
+
+
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
