@@ -82,6 +82,7 @@ function addPaginationLinks (list) {
    const divPage = document.querySelector('.page');
    divPage.appendChild(newDiv);
    const ulPagLinks = document.createElement('ul');
+   ulPagLinks.className = 'pagLinks';
    newDiv.appendChild(ulPagLinks);
    showPage(studentList, 1);
    //for every page, add li and a tags with the page number text
@@ -93,9 +94,9 @@ function addPaginationLinks (list) {
       a.textContent = i;
       a.href = '#';
       let aList = document.querySelectorAll('a');
-      for (iEventListener = 2; i <= aList.length; i++) {
+      for (i = 1; i <= aList.length; i++) {
          a.addEventListener('click', (event) => {
-            showPage(studentList, iEventListener);
+            showPage(studentList, i);
             event.target.className = 'active';
       });
    }
@@ -104,10 +105,6 @@ function addPaginationLinks (list) {
    
    //Add an event listener to each a tag. When they are clicked
    //call the showPage function to display the appropriate page
-   //TODO: Make this so it's not hard coded.
-
-
-   
    
    //Loop over pagination links to remove active class from all links
    //Add the active class to the link that was just clicked. You can
@@ -116,14 +113,6 @@ function addPaginationLinks (list) {
 
 
 addPaginationLinks(studentList);
-
-//event listeners//
-
-
-//event listener should be on the ul I think then use event.target and if statements
-
-
-
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
