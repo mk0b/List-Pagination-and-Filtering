@@ -94,7 +94,7 @@ function addPaginationLinks (list) {
       a.textContent = i;
       a.href = '#';
       let aList = document.querySelectorAll('a');
-      for (j = 1; i <= aList.length; j++) {
+      for (let j = 1; i <= aList.length; j++) {
          a.addEventListener('click', (event) => {
             showPage(studentList, j);
             event.target.className = 'active';
