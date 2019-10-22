@@ -91,18 +91,16 @@ function addPaginationLinks (list) {
       li.appendChild(a);
       a.textContent = i;
       a.href = '#';
+     
       let aList = document.querySelectorAll('a');
       for (let j = 1; j <= aList.length; j++) {
          a.addEventListener('click', (event) => {
             showPage(studentList, j);
-            
-            for (let k = 1; k <= aList.length; k++) {
-               a.className = '';
-            }
+            li.firstChild.className = '';
             event.target.className = 'active';
       });
       }
-
+      li.firstChild.className = 'active';
    }
 
    
@@ -113,7 +111,6 @@ function addPaginationLinks (list) {
    //Add the active class to the link that was just clicked. You can
    //identify that clicked link using event.target
 }
-
 
 addPaginationLinks(studentList);
 
