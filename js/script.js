@@ -7,8 +7,6 @@ FSJS project 2 - List Filter and Pagination
 making my code smaller just added more function code so I left my code 
 the same.*/
 
-//TODO: Fix the active button issue once I receive help.
-
 //grabbing my intital elements, putting my collection into an array, and setting the records to show per page.
 const ul = document.querySelector('.student-list');
 const studentList = [...ul.children];
@@ -34,7 +32,7 @@ funtion for each event listener.
 */
 
 function addPaginationLinks (list) {
-   let totalPages = Math.ceil(list.length / recordsPerPage);
+   const totalPages = Math.ceil(list.length / recordsPerPage);
    const newDiv = document.createElement('div');
    newDiv.className = 'pagination';
    const divPage = document.querySelector('.page');
@@ -50,16 +48,20 @@ function addPaginationLinks (list) {
       li.appendChild(a);
       a.textContent = i;
       a.href = '#';
-      let aList = document.querySelectorAll('a');
+      const firstA = document.querySelector('a');
+      firstA.className = 'active';
+      const aList = document.querySelectorAll('a');
       //adding an event listener to each link
       for (let j = 1; j <= aList.length; j++) {
          a.addEventListener('click', (event) => {
             showPage(studentList, j);
-            li.firstChild.className = '';
+            //const aActive = document.querySelectorAll('.active');
+            for (let k = 0; k < aList.length; k++) {
+               aList[k].className = '';
+            }
             event.target.className = 'active';
       });
       }
-      li.firstChild.className = 'active';
    }
 }
 
