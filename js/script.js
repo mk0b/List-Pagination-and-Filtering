@@ -33,6 +33,8 @@ funtion for each event listener.
 
 function addPaginationLinks (list) {
    const totalPages = Math.ceil(list.length / recordsPerPage);
+   console.log(typeof 'Type: ' + totalPages);
+   console.log(totalPages);
    const newDiv = document.createElement('div');
    newDiv.className = 'pagination';
    const divPage = document.querySelector('.page');
