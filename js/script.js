@@ -12,6 +12,7 @@ const ul = document.querySelector('.student-list');
 const studentList = [...ul.children];
 const recordsPerPage = 10;
 
+
 //function to show or hide the correct index of students on each page.
 function showPage(list, page) {
    let startIndex = (page * recordsPerPage) - recordsPerPage;
@@ -33,8 +34,6 @@ funtion for each event listener.
 
 function addPaginationLinks (list) {
    const totalPages = Math.ceil(list.length / recordsPerPage);
-   console.log(typeof 'Type: ' + totalPages);
-   console.log(totalPages);
    const newDiv = document.createElement('div');
    newDiv.className = 'pagination';
    const divPage = document.querySelector('.page');
