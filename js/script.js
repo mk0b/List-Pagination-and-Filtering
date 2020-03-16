@@ -23,7 +23,7 @@ function showPage(list, page) {
          list[i].style.display = 'block';
          } else {
             list[i].style.display = 'none';
-               }
+            }
    }
 }
 

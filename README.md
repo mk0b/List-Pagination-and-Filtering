@@ -1,6 +1,13 @@
-# List Pagination and Filtering
- Megan Katherine O'Brien's List Pagination and Filtering Project 2 as a TeamTreeHouse Full Stack JavaScript Talent Path student.
+## Project Description
 
-Grading Note: Going for Meets Expectations
+Takes any list of students and paginates the list into 10 records per page.
 
-This JavaScript program takes a list of students and paginates the list into 10 records per page.
+### Technologies Used:
+
+- JavaScript
+- HTML
+- CSS
+
+#### Author
+
+Megan Katherine O'Brien | www.megankatherineobrien.com
